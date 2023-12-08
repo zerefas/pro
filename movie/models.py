@@ -14,13 +14,12 @@ class Movie(models.Model):
         ('action','ACTION'),
         ('drama', 'DRAMA'),
         ('comedy', 'COMEDY'),
-        ('romance', 'ROMANCE'),
+        ('animated', 'ANIMATED'),
 
     )
 
     Language=(
         ('english','ENGLISH'),
-        ('deutsch','Deutsch'),
         ('hindi', 'HINDI'),
     )
 
@@ -40,7 +39,7 @@ class Movie(models.Model):
     year_of_production = models.DateField()
     view_count = models.IntegerField(default=0)
     slug = models.SlugField(blank=True, null=True)
-    movie_trailer = models.URLField()
+    movie_trailer = models.ImageField(upload_to='movies')
     created_date = models.DateField(default=timezone.now)
 
     def save(self, *args, **kwargs):
